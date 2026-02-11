@@ -93,6 +93,9 @@ class _SettingPageState extends State<SettingPage> {
                   subtitle: 'Enabled',
                   showChevron: true,
                   showDivider: false,
+                  onTap: () {
+                    Get.toNamed(RoutesName.offlineStoragePage);
+                  },
                 ),
               ],
             ),
@@ -142,6 +145,9 @@ class _SettingPageState extends State<SettingPage> {
                   iconBgColor: const Color(0xFFE3F2FD),
                   title: 'Notifications',
                   showDivider: true,
+                  onTap: () {
+                    Get.toNamed(RoutesName.notificationPage);
+                  },
                 ),
                 // Session Timeout
                 _buildSecurityItem(
@@ -151,6 +157,9 @@ class _SettingPageState extends State<SettingPage> {
                   title: 'Crew Management',
                   trailing: '',
                   showDivider: true,
+                  onTap: () {
+                    Get.toNamed(RoutesName.crewManagement);
+                  },
                 ),
                 // Audit Trail
                 _buildSecurityItem(
@@ -159,6 +168,9 @@ class _SettingPageState extends State<SettingPage> {
                   iconBgColor: const Color(0xFFF1F8E9),
                   title: 'Application Lock',
                   showDivider: true,
+                  onTap: () {
+                    Get.toNamed(RoutesName.appLockPage);
+                  },
                 ),
                 // Change PIN
                 _buildSecurityItem(
@@ -178,6 +190,9 @@ class _SettingPageState extends State<SettingPage> {
                   iconBgColor: const Color(0xFFFFF3E0),
                   title: 'Support',
                   showDivider: false,
+                  onTap: () {
+                    Get.toNamed(RoutesName.auraDashboard);
+                  },
                 ),
               ],
             ),
@@ -265,77 +280,81 @@ class _SettingPageState extends State<SettingPage> {
     required Color iconColor,
     required Color iconBgColor,
     required String title,
+    final VoidCallback? onTap,
     String? subtitle,
     Widget? trailing,
     bool showChevron = false,
     required bool showDivider,
   }) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14),
-          child: Row(
-            children: [
-              // Icon with circular background
-              Container(
-                width: 44,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: iconBgColor,
-                  borderRadius: BorderRadius.circular(12),
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14),
+            child: Row(
+              children: [
+                // Icon with circular background
+                Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    color: iconBgColor,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(icon, color: iconColor, size: 22),
                 ),
-                child: Icon(icon, color: iconColor, size: 22),
-              ),
-              const SizedBox(width: 16),
-              // Title and Subtitle
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFF212529),
-                      ),
-                    ),
-                    if (subtitle != null)
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4),
-                        child: Text(
-                          subtitle,
-                          style: const TextStyle(
-                            fontSize: 13,
-                            color: Color(0xFF90A4AE),
-                            fontWeight: FontWeight.w400,
-                          ),
+                const SizedBox(width: 16),
+                // Title and Subtitle
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF212529),
                         ),
                       ),
-                  ],
+                      if (subtitle != null)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            subtitle,
+                            style: const TextStyle(
+                              fontSize: 13,
+                              color: Color(0xFF90A4AE),
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
-              ),
-              // Trailing widget or chevron
-              if (trailing != null)
-                trailing
-              else if (showChevron)
-                const Icon(
-                  Icons.chevron_right,
-                  color: Color(0xFFBDBDBD),
-                  size: 24,
-                ),
-            ],
-          ),
-        ),
-        if (showDivider)
-          Padding(
-            padding: const EdgeInsets.only(left: 60, right: 16),
-            child: Container(
-              height: 1,
-              color: const Color(0xFFF5F5F5),
+                // Trailing widget or chevron
+                if (trailing != null)
+                  trailing
+                else if (showChevron)
+                  const Icon(
+                    Icons.chevron_right,
+                    color: Color(0xFFBDBDBD),
+                    size: 24,
+                  ),
+              ],
             ),
           ),
-      ],
+          if (showDivider)
+            Padding(
+              padding: const EdgeInsets.only(left: 60, right: 16),
+              child: Container(
+                height: 1,
+                color: const Color(0xFFF5F5F5),
+              ),
+            ),
+        ],
+      ),
     );
   }
 

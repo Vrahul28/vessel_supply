@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vessel_supply/res/routes_name/routes_name.dart';
 import 'package:vessel_supply/widgets/custom_app_bar.dart';
 import 'package:vessel_supply/widgets/inverntory_item_card.dart';
 import 'package:vessel_supply/widgets/search_widget.dart';
-import '../res/colors/app_colors.dart';
+import '../../res/colors/app_colors.dart';
 
 class InventoryPage extends StatelessWidget {
   const InventoryPage({super.key});
@@ -26,7 +28,6 @@ class InventoryPage extends StatelessWidget {
                 const SizedBox(height: 12),
                 const FilterChipsRow(),
                 const SizedBox(height: 20),
-    
                 const SectionTitle(title: 'SAFETY GEARS'),
                 const SizedBox(height: 12),
     
@@ -35,7 +36,11 @@ class InventoryPage extends StatelessWidget {
                   iconColor: const Color(0xFFFF6400),
                   title: 'Life Jackets',
                   subtitle: '5/50 pcs left',
-                  button: const RestockButton(),
+                  button: RestockButton(
+                    onPressed: () {
+                    Get.toNamed(RoutesName.cleaningRags);
+                  },
+                  ),
                 ),
                 const SizedBox(height: 14),
                 InventoryItemCard(
@@ -43,7 +48,11 @@ class InventoryPage extends StatelessWidget {
                   iconColor: AppColors.yellow,
                   title: 'Work Gloves',
                   subtitle: '12/100 pcs left',
-                  button: const RestockButton(),
+                  button: RestockButton(
+                     onPressed: () {
+                    
+                  },
+                  ),
                 ),
                 const SizedBox(height: 14),
                 InventoryItemCard(
@@ -51,7 +60,11 @@ class InventoryPage extends StatelessWidget {
                   iconColor: AppColors.yellow,
                   title: 'Hard Hats',
                   subtitle: '8/25 pcs left',
-                  button: const RestockButton(),
+                  button: RestockButton(    
+                     onPressed: () {
+                    
+                  },
+                  ),
                 ),
     
                 const SizedBox(height: 22),
@@ -63,9 +76,12 @@ class InventoryPage extends StatelessWidget {
                   iconColor: const Color(0xFF3B82F6),
                   title: 'Tools',
                   subtitle: '25/50',
-                  button: const RestockButton(),
+                  button: RestockButton(        
+                     onPressed: () {
+                    
+                  },
+                  ),
                 ),
-    
                 const SizedBox(height: 90),
               ],
             ),
@@ -159,7 +175,8 @@ class SectionTitle extends StatelessWidget {
 
 
 class RestockButton extends StatelessWidget {
-  const RestockButton({super.key});
+  final VoidCallback? onPressed;
+  const RestockButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +193,7 @@ class RestockButton extends StatelessWidget {
           ),
           child: TextButton(
             style: TextButton.styleFrom(padding: EdgeInsets.zero, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
-            onPressed: () {},
+            onPressed: onPressed,
             child: const Text('Restock', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
           ),
         ),
