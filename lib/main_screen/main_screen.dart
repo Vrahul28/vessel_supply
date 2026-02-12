@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:vessel_supply/widgets/RFQ_progress_card.dart';
 import 'package:vessel_supply/widgets/custom_action_card.dart';
 import 'package:vessel_supply/widgets/welcome_card.dart';
-
 import '../res/routes_name/routes_name.dart';
 import '../widgets/custom_app_bar.dart';
 
@@ -22,7 +20,12 @@ class MainScreen extends StatelessWidget {
                     const Icon(Icons.notifications_none, color: Colors.white),
                 iconSize: 25,
               ),
-              iconData: Icon(Icons.directions_boat, color: Colors.white,),
+              iconButton2: IconButton(
+          onPressed: () {
+            
+          },
+          icon: Icon(Icons.directions_boat, color: Colors.white),
+        ),
       ),
       body: SingleChildScrollView(
         child: Padding(

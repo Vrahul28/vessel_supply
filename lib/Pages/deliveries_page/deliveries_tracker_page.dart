@@ -49,7 +49,7 @@ class _DeliveriesPageState extends State<DeliveriesPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F6F8),
       appBar: CustomAppBarActiveRFQ(
-        title: 'Delivery',
+        title: 'Delivery Tracker',
           onBackPressed: (){
             Get.back();
           },

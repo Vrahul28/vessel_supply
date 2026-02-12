@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../res/routes_name/routes_name.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_search_bar.dart';
 import '../widgets/rfq_card.dart';
@@ -95,9 +97,10 @@ class _ActiveRfqPageState extends State<ActiveRfqPage> {
                 Navigator.pop(context);
               },
               onNewPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Create new RFQ')),
-                );
+                Get.toNamed(RoutesName.newRequests);
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //   const SnackBar(content: Text('Create new RFQ')),
+                // );
               },
             ),
       body: SafeArea(

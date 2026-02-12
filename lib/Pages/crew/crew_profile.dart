@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:vessel_supply/widgets/crew_widgets/profile_header.dart';
 import 'package:vessel_supply/widgets/crew_widgets/toggle_tile.dart';
 import 'package:vessel_supply/widgets/crew_widgets/info_tile.dart';
@@ -22,7 +23,12 @@ class _CrewProfileState extends State<CrewProfile> {
       backgroundColor: const Color(0xFFEEF1F5),
       appBar: CustomAppBar(
       text: 'Crew Profile',
-      iconData: Icon(Icons.arrow_back, color: Colors.white),
+      iconButton2: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+        ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(

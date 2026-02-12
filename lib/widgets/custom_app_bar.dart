@@ -5,12 +5,13 @@ import '../res/colors/app_colors.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String text;
   final IconButton? iconButton;
-  final Icon? iconData;
+  final IconButton? iconButton2;
+  
   const CustomAppBar({
     super.key, 
     required this.text, 
     this.iconButton,
-    this.iconData
+    this.iconButton2,
     });
 
   @override
@@ -24,7 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       leading: Container(
         margin: const EdgeInsets.only(left: 16),
-        child: iconData,
+        child: iconButton2,
       ),
       title: Text(
         text,

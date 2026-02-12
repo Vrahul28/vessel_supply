@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:vessel_supply/widgets/custom_app_bar.dart';
 
 class SecurityPage extends StatefulWidget {
@@ -19,7 +20,12 @@ class _SecurityPageState extends State<SecurityPage> {
       backgroundColor: const Color(0xFFF3F5F7),
       appBar: CustomAppBar(
         text: 'Security',
-        iconData: Icon(Icons.arrow_back, color: Colors.white),
+        iconButton2: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+        ),
         ),
       body: SingleChildScrollView(
         child: Padding(

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import '../../widgets/custom_app_bar.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -38,7 +39,12 @@ class _NotificationPageState extends State<NotificationPage> {
       backgroundColor: const Color(0xFFEEF1F5),
       appBar: CustomAppBar(
         text: 'Notifications',
-        iconData: Icon(Icons.arrow_back, color: Colors.white),
+        iconButton2: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+        ),
         ),
       body: SafeArea(
         child: SingleChildScrollView(

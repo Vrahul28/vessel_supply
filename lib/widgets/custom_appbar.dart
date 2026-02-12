@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vessel_supply/res/colors/app_colors.dart';
 
 class CustomAppBarActiveRFQ extends StatelessWidget implements PreferredSizeWidget{
   final String title;
@@ -20,7 +21,7 @@ class CustomAppBarActiveRFQ extends StatelessWidget implements PreferredSizeWidg
     return Container(
       height: 110,
       decoration: const BoxDecoration(
-        color: Color(0xFF1E5C89),
+        color: AppColors.appBarColor,
       ),
       child: SafeArea(
         child: Padding(

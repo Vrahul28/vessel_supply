@@ -22,7 +22,12 @@ class CrewManagementScreen extends StatelessWidget {
       backgroundColor: const Color(0xFFF1F5F9),
       appBar: CustomAppBar(
       text: 'Crew Management',
-      iconData: Icon(Icons.arrow_back, color: Colors.white),
+      iconButton2: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+        ),
       ),
       body: Column(
         children: [

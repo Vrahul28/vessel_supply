@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import '../../widgets/custom_app_bar.dart';
 
 class AuraDashboardPage extends StatefulWidget {
@@ -39,7 +40,12 @@ class _AuraDashboardPageState extends State<AuraDashboardPage> {
       backgroundColor: const Color(0xFFEEF1F5),
       appBar: CustomAppBar(
         text: 'Aurora Dashboard',
-        iconData: Icon(Icons.arrow_back, color: Colors.white),
+        iconButton2: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+        ),
         ),
       body: SafeArea(
         child: SingleChildScrollView(

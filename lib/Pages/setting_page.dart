@@ -20,8 +20,13 @@ class _SettingPageState extends State<SettingPage> {
       backgroundColor: const Color(0xFFF3F5F7),
       appBar: CustomAppBar(
         text: 'Settings',
-        iconData: Icon(Icons.arrow_back, color: Colors.white),
+        iconButton2: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back, color: Colors.white),
         ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 16.0),

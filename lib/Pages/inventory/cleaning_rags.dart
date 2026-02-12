@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:vessel_supply/widgets/inventory_widgets/inventory_item_header.dart';
 import 'package:vessel_supply/widgets/inventory_widgets/stock_info_card.dart';
 import 'package:vessel_supply/widgets/inventory_widgets/supplier_card.dart';
@@ -39,7 +40,12 @@ class _CleaningRagsState extends State<CleaningRags> {
       backgroundColor: const Color(0xFFEEF3F8),
       appBar: CustomAppBar(
         text: 'Cleaning Rags',
-        iconData: Icon(Icons.arrow_back, color: Colors.white),
+        iconButton2: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+        ),
         ),
       body: SafeArea(
         child: SingleChildScrollView(
