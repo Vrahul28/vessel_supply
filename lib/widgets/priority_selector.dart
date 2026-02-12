@@ -4,7 +4,8 @@ class PrioritySelector extends StatefulWidget {
   final String initial;
   final ValueChanged<String>? onChanged;
 
-  const PrioritySelector({Key? key, this.initial = 'Routine', this.onChanged}) : super(key: key);
+  const PrioritySelector({Key? key, this.initial = 'Routine', this.onChanged})
+      : super(key: key);
 
   @override
   State<PrioritySelector> createState() => _PrioritySelectorState();
@@ -38,13 +39,17 @@ class _PrioritySelectorState extends State<PrioritySelector> {
               : const Color(0xFFF1F3F5),
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: selected && isUrgent ? const Color(0xFFE53935) : Colors.transparent,
+            color: selected && isUrgent
+                ? const Color(0xFFE53935)
+                : Colors.transparent,
           ),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: selected && isUrgent ? const Color(0xFFE53935) : const Color(0xFF374151),
+            color: selected && isUrgent
+                ? const Color(0xFFE53935)
+                : const Color(0xFF374151),
             fontWeight: FontWeight.w600,
           ),
         ),

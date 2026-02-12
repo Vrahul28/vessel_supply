@@ -12,7 +12,6 @@ class CustomSearchBar extends StatefulWidget {
 
   @override
   State<CustomSearchBar> createState() => _CustomSearchBarState();
-
 }
 
 class _CustomSearchBarState extends State<CustomSearchBar> {

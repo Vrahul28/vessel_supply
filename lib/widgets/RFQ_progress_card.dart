@@ -88,13 +88,16 @@ class RfqProgressCard extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: _buildProgressLabel('Pending', pending, const Color(0xFF42A5F5)),
+                child: _buildProgressLabel(
+                    'Pending', pending, const Color(0xFF42A5F5)),
               ),
               Expanded(
-                child: _buildProgressLabel('Quoted', quoted, const Color(0xFF26A69A)),
+                child: _buildProgressLabel(
+                    'Quoted', quoted, const Color(0xFF26A69A)),
               ),
               Expanded(
-                child: _buildProgressLabel('Accepted', accepted, const Color(0xFFBDBDBD)),
+                child: _buildProgressLabel(
+                    'Accepted', accepted, const Color(0xFFBDBDBD)),
               ),
             ],
           ),

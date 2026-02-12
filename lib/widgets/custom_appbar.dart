@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vessel_supply/res/colors/app_colors.dart';
 
-class CustomAppBarActiveRFQ extends StatelessWidget implements PreferredSizeWidget{
+class CustomAppBarActiveRFQ extends StatelessWidget
+    implements PreferredSizeWidget {
   final String title;
   final VoidCallback? onBackPressed;
   final VoidCallback? onNewPressed;

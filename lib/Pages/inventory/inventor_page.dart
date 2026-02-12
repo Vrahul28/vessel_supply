@@ -21,7 +21,7 @@ class InventoryPage extends StatelessWidget {
           },
           icon: Icon(Icons.arrow_back, color: Colors.white),
         ),
-        ),
+      ),
       body: Column(
         children: [
           const SizedBox(height: 18),
@@ -35,7 +35,6 @@ class InventoryPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 const SectionTitle(title: 'SAFETY GEARS'),
                 const SizedBox(height: 12),
-    
                 InventoryItemCard(
                   icon: Icons.anchor,
                   iconColor: const Color(0xFFFF6400),
@@ -43,8 +42,8 @@ class InventoryPage extends StatelessWidget {
                   subtitle: '5/50 pcs left',
                   button: RestockButton(
                     onPressed: () {
-                    Get.toNamed(RoutesName.cleaningRags);
-                  },
+                      Get.toNamed(RoutesName.cleaningRags);
+                    },
                   ),
                 ),
                 const SizedBox(height: 14),
@@ -54,9 +53,7 @@ class InventoryPage extends StatelessWidget {
                   title: 'Work Gloves',
                   subtitle: '12/100 pcs left',
                   button: RestockButton(
-                     onPressed: () {
-                    
-                  },
+                    onPressed: () {},
                   ),
                 ),
                 const SizedBox(height: 14),
@@ -65,26 +62,20 @@ class InventoryPage extends StatelessWidget {
                   iconColor: AppColors.yellow,
                   title: 'Hard Hats',
                   subtitle: '8/25 pcs left',
-                  button: RestockButton(    
-                     onPressed: () {
-                    
-                  },
+                  button: RestockButton(
+                    onPressed: () {},
                   ),
                 ),
-    
                 const SizedBox(height: 22),
                 const SectionTitle(title: 'TOOLS'),
                 const SizedBox(height: 12),
-    
                 InventoryItemCard(
                   icon: Icons.build,
                   iconColor: const Color(0xFF3B82F6),
                   title: 'Tools',
                   subtitle: '25/50',
-                  button: RestockButton(        
-                     onPressed: () {
-                    
-                  },
+                  button: RestockButton(
+                    onPressed: () {},
                   ),
                 ),
                 const SizedBox(height: 90),
@@ -126,7 +117,8 @@ class FilterChipWidget extends StatelessWidget {
   final String label;
   final bool selected;
 
-  const FilterChipWidget({super.key, required this.label, this.selected = false});
+  const FilterChipWidget(
+      {super.key, required this.label, this.selected = false});
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +131,8 @@ class FilterChipWidget extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: const TextStyle(fontWeight: FontWeight.w600, color: Colors.black87),
+          style: const TextStyle(
+              fontWeight: FontWeight.w600, color: Colors.black87),
         ),
       );
     }
@@ -153,7 +146,8 @@ class FilterChipWidget extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: const TextStyle(fontWeight: FontWeight.w600, color: Colors.black54),
+        style:
+            const TextStyle(fontWeight: FontWeight.w600, color: Colors.black54),
       ),
     );
   }
@@ -177,8 +171,6 @@ class SectionTitle extends StatelessWidget {
   }
 }
 
-
-
 class RestockButton extends StatelessWidget {
   final VoidCallback? onPressed;
   const RestockButton({super.key, required this.onPressed});
@@ -193,19 +185,22 @@ class RestockButton extends StatelessWidget {
         elevation: 3,
         child: Container(
           decoration: BoxDecoration(
-            gradient: const LinearGradient(colors: [Color(0xFF3B82F6), Color(0xFF2563EB)]),
+            gradient: const LinearGradient(
+                colors: [Color(0xFF3B82F6), Color(0xFF2563EB)]),
             borderRadius: BorderRadius.circular(10),
           ),
           child: TextButton(
-            style: TextButton.styleFrom(padding: EdgeInsets.zero, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+            style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10))),
             onPressed: onPressed,
-            child: const Text('Restock', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700)),
+            child: const Text('Restock',
+                style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.w700)),
           ),
         ),
       ),
     );
   }
 }
-
-
-

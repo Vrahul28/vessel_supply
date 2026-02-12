@@ -46,7 +46,7 @@ class _AuraDashboardPageState extends State<AuraDashboardPage> {
           },
           icon: Icon(Icons.arrow_back, color: Colors.white),
         ),
-        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -114,7 +114,8 @@ class _AuraDashboardPageState extends State<AuraDashboardPage> {
                   children: [
                     // Supply Shortages Block
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -206,7 +207,8 @@ class _AuraDashboardPageState extends State<AuraDashboardPage> {
                     ),
                     // Outbound Ready Block
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -318,8 +320,8 @@ class _AuraDashboardPageState extends State<AuraDashboardPage> {
           child: Stack(
             children: [
               IconButton(
-                icon:
-                    const Icon(Icons.notifications_outlined, color: Colors.white, size: 24),
+                icon: const Icon(Icons.notifications_outlined,
+                    color: Colors.white, size: 24),
                 onPressed: () => _showNotifications(),
               ),
               NotificationBadge(
@@ -490,7 +492,9 @@ class ReminderTile extends StatelessWidget {
                       subtitle,
                       style: TextStyle(
                         fontSize: 13,
-                        color: showWarningBadge ? const Color(0xFFFF9800) : Colors.grey[600],
+                        color: showWarningBadge
+                            ? const Color(0xFFFF9800)
+                            : Colors.grey[600],
                         fontWeight: FontWeight.w400,
                       ),
                     ),

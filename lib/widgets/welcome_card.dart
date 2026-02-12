@@ -5,7 +5,7 @@ class WelcomeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size= MediaQuery.of(context).size;
+    var size = MediaQuery.of(context).size;
     return Container(
       width: size.width,
       height: size.height * 0.18,

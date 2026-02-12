@@ -26,20 +26,20 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       backgroundColor: const Color(0xFFF3F5F7),
       body: PageView(
-            controller: pageController,
-            physics: const NeverScrollableScrollPhysics(),
-            onPageChanged: (value) {
-              setState(() {
-                _selectedIndex = value;
-              });
-            },
-            children: [
-              MainScreen(),
-              ActiveRfqPage(),
-              DeliveriesScreen(),
-              SettingPage(),
-            ],
-          ),
+        controller: pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        onPageChanged: (value) {
+          setState(() {
+            _selectedIndex = value;
+          });
+        },
+        children: [
+          MainScreen(),
+          ActiveRfqPage(),
+          DeliveriesScreen(),
+          SettingPage(),
+        ],
+      ),
       bottomNavigationBar: _buildBottomNavBar(),
     );
   }
@@ -128,6 +128,3 @@ class _DashboardState extends State<Dashboard> {
     );
   }
 }
-
-
-

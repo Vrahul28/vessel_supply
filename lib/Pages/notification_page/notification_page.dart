@@ -45,7 +45,7 @@ class _NotificationPageState extends State<NotificationPage> {
           },
           icon: Icon(Icons.arrow_back, color: Colors.white),
         ),
-        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

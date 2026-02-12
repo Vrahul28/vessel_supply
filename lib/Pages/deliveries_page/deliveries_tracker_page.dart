@@ -40,20 +40,23 @@ class _DeliveriesPageState extends State<DeliveriesPage> {
     ]);
 
     manifestItems = [
-      ManifestItemModel(title: 'Fuel Filters (Type B)', partNumber: 'FF-9921', quantity: 12),
-      ManifestItemModel(title: 'Hydraulic Hoses', partNumber: 'HH-4420', quantity: 6),
+      ManifestItemModel(
+          title: 'Fuel Filters (Type B)', partNumber: 'FF-9921', quantity: 12),
+      ManifestItemModel(
+          title: 'Hydraulic Hoses', partNumber: 'HH-4420', quantity: 6),
     ];
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F6F8),
       appBar: CustomAppBarActiveRFQ(
         title: 'Delivery Tracker',
-          onBackPressed: (){
-            Get.back();
-          },
-        ),
+        onBackPressed: () {
+          Get.back();
+        },
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.only(bottom: 16),
@@ -88,7 +91,8 @@ class _DeliveriesPageState extends State<DeliveriesPage> {
                       const SizedBox(height: 8),
                       Container(
                         height: 90,
-                        margin: const EdgeInsets.only(left: 16, right: 16, top: 8),
+                        margin:
+                            const EdgeInsets.only(left: 16, right: 16, top: 8),
                         decoration: BoxDecoration(
                           color: const Color(0xFFE6E9EC),
                           borderRadius: BorderRadius.circular(12),
@@ -113,7 +117,8 @@ class _DeliveriesPageState extends State<DeliveriesPage> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(16),
                             ),
-                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 8),
                             elevation: 0,
                           ),
                           onPressed: () {},
@@ -133,27 +138,29 @@ class _DeliveriesPageState extends State<DeliveriesPage> {
                 ),
               ),
               Padding(
-                 padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   children: [
-                     const SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 0),
-                        child: Text(
-                          'Items Manifest',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
-                            color: Color(0xFF111827),
-                          ),
+                      padding: EdgeInsets.symmetric(horizontal: 0),
+                      child: Text(
+                        'Items Manifest',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF111827),
                         ),
                       ),
+                    ),
                   ],
                 ),
               ),
               const SizedBox(height: 8),
               Column(
-                children: manifestItems.map((it) => ManifestItemCard(item: it)).toList(),
+                children: manifestItems
+                    .map((it) => ManifestItemCard(item: it))
+                    .toList(),
               ),
               const SizedBox(height: 10),
             ],

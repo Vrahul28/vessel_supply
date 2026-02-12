@@ -44,12 +44,15 @@ class InventoryItemCard extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w700, fontSize: 16),
                 ),
                 const SizedBox(height: 6),
                 Text(
                   subtitle,
-                  style: TextStyle(color: Colors.orange.shade700, fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                      color: Colors.orange.shade700,
+                      fontWeight: FontWeight.w600),
                 ),
               ],
             ),

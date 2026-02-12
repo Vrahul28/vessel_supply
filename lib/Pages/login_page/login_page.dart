@@ -2,17 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:vessel_supply/res/routes_name/routes_name.dart';
+import '../../res/app_spacing/app_spacing.dart';
 import '../../res/colors/app_colors.dart';
-
-// Spacing Constants
-class AppSpacing {
-  static const double xs = 4;
-  static const double sm = 8;
-  static const double md = 12;
-  static const double lg = 16;
-  static const double xl = 20;
-  static const double xxl = 24;
-}
 
 // Main Vessel Login Screen
 class LoginPage extends StatefulWidget {
@@ -51,7 +42,9 @@ class _LoginPageState extends State<LoginPage> {
         ),
         child: ConstrainedBox(
           constraints: BoxConstraints(
-            minHeight: MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top - MediaQuery.of(context).padding.bottom,
+            minHeight: MediaQuery.of(context).size.height -
+                MediaQuery.of(context).padding.top -
+                MediaQuery.of(context).padding.bottom,
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
@@ -60,121 +53,121 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 // Main Login Card
                 Container(
-                decoration: BoxDecoration(
-                  color: AppColors.cardWhite,
-                  borderRadius: BorderRadius.circular(24),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 20,
-                      offset: const Offset(0, 8),
-                    ),
-                  ],
+                  decoration: BoxDecoration(
+                    color: AppColors.cardWhite,
+                    borderRadius: BorderRadius.circular(24),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 20,
+                        offset: const Offset(0, 8),
+                      ),
+                    ],
+                  ),
+                  padding: const EdgeInsets.all(AppSpacing.xl),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // Profile Header
+                      ProfileHeader(
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Profile tapped'),
+                              duration: Duration(seconds: 1),
+                            ),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: AppSpacing.xxl),
+
+                      // Vessel Name Field
+                      CustomTextField(
+                        icon: Icons.directions_boat,
+                        hintText: 'Vessel Name Aurora',
+                        controller: vesselNameController,
+                      ),
+                      const SizedBox(height: AppSpacing.lg),
+
+                      // Password Field
+                      PasswordField(
+                        controller: passwordController,
+                      ),
+                      const SizedBox(height: AppSpacing.xxl),
+
+                      // Login Button
+                      PrimaryButton(
+                        label: 'Login',
+                        onPressed: () {
+                          Get.toNamed(RoutesName.dashboard);
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Login button pressed'),
+                              duration: Duration(seconds: 2),
+                            ),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: AppSpacing.md),
+                      // Offline Toggle
+                      OfflineToggleRow(
+                        isEnabled: offlineModeEnabled,
+                        onChanged: (value) {
+                          setState(() {
+                            offlineModeEnabled = value;
+                          });
+                        },
+                      ),
+                      const SizedBox(height: AppSpacing.md),
+
+                      // QR Crew Login Button
+                      SecondaryButton(
+                        label: 'QR Crew Login',
+                        icon: Icons.qr_code_2,
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('QR Crew Login pressed'),
+                              duration: Duration(seconds: 2),
+                            ),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: AppSpacing.xl),
+
+                      // Biometric Buttons
+                      BiometricButtons(
+                        onFingerprintPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Fingerprint authentication'),
+                              duration: Duration(seconds: 2),
+                            ),
+                          );
+                        },
+                        onQRPressed: () {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('QR scan initiated'),
+                              duration: Duration(seconds: 2),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
-                padding: const EdgeInsets.all(AppSpacing.xl),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    // Profile Header
-                    ProfileHeader(
-                      onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Profile tapped'),
-                            duration: Duration(seconds: 1),
-                          ),
-                        );
-                      },
-                    ),
-                    const SizedBox(height: AppSpacing.xxl),
-          
-                    // Vessel Name Field
-                    CustomTextField(
-                      icon: Icons.directions_boat,
-                      hintText: 'Vessel Name Aurora',
-                      controller: vesselNameController,
-                    ),
-                    const SizedBox(height: AppSpacing.lg),
-          
-                    // Password Field
-                    PasswordField(
-                      controller: passwordController,
-                    ),
-                    const SizedBox(height: AppSpacing.xxl),
-          
-                    // Login Button
-                    PrimaryButton(
-                      label: 'Login',
-                      onPressed: () {
-                        Get.toNamed(RoutesName.dashboard);
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Login button pressed'),
-                            duration: Duration(seconds: 2),
-                          ),
-                        );
-                      },
-                    ),
-                    const SizedBox(height: AppSpacing.md),
-                    // Offline Toggle
-                    OfflineToggleRow(
-                      isEnabled: offlineModeEnabled,
-                      onChanged: (value) {
-                        setState(() {
-                          offlineModeEnabled = value;
-                        });
-                      },
-                    ),
-                    const SizedBox(height: AppSpacing.md),
-          
-                    // QR Crew Login Button
-                    SecondaryButton(
-                      label: 'QR Crew Login',
-                      icon: Icons.qr_code_2,
-                      onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('QR Crew Login pressed'),
-                            duration: Duration(seconds: 2),
-                          ),
-                        );
-                      },
-                    ),
-                    const SizedBox(height: AppSpacing.xl),
-          
-                    // Biometric Buttons
-                    BiometricButtons(
-                      onFingerprintPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Fingerprint authentication'),
-                            duration: Duration(seconds: 2),
-                          ),
-                        );
-                      },
-                      onQRPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('QR scan initiated'),
-                            duration: Duration(seconds: 2),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
+
+                const SizedBox(height: AppSpacing.xxl),
+
+                // Footer Text
+                Text(
+                  'Coded Vessel ID 12345',
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: AppColors.subtitleGrey,
+                        fontSize: 12,
+                      ),
                 ),
-              ),
-          
-              const SizedBox(height: AppSpacing.xxl),
-          
-              // Footer Text
-              Text(
-                'Coded Vessel ID 12345',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: AppColors.subtitleGrey,
-                      fontSize: 12,
-                    ),
-              ),
               ],
             ),
           ),

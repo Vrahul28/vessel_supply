@@ -37,7 +37,9 @@ class SyncStatusCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: isConnected ? Colors.green.withOpacity(0.15) : Colors.red.withOpacity(0.15),
+              color: isConnected
+                  ? Colors.green.withOpacity(0.15)
+                  : Colors.red.withOpacity(0.15),
               shape: BoxShape.circle,
             ),
             child: Icon(

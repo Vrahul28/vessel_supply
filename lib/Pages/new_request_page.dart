@@ -5,7 +5,6 @@ import '../widgets/custom_textfield.dart';
 import '../widgets/priority_selector.dart';
 import '../widgets/attach_photo_card.dart';
 
-
 class NewRequestPage extends StatefulWidget {
   const NewRequestPage({super.key});
 
@@ -16,10 +15,10 @@ class NewRequestPage extends StatefulWidget {
 class _NewRequestPageState extends State<NewRequestPage> {
   String _department = 'Engine Department';
   final TextEditingController _itemController = TextEditingController();
-  final TextEditingController _quantityController = TextEditingController(text: '1');
+  final TextEditingController _quantityController =
+      TextEditingController(text: '1');
   final TextEditingController _notesController = TextEditingController();
   String _priority = 'Routine';
-  
 
   @override
   void dispose() {
@@ -35,10 +34,10 @@ class _NewRequestPageState extends State<NewRequestPage> {
       backgroundColor: const Color(0xFFF4F6F8),
       appBar: CustomAppBarActiveRFQ(
         title: 'New Request',
-          onBackPressed: (){
-            Get.back();
-          },
-        ),
+        onBackPressed: () {
+          Get.back();
+        },
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.only(bottom: 16, top: 8),
@@ -47,7 +46,8 @@ class _NewRequestPageState extends State<NewRequestPage> {
             children: [
               // Department Dropdown
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -72,17 +72,25 @@ class _NewRequestPageState extends State<NewRequestPage> {
                       ),
                       child: DropdownButtonFormField<String>(
                         value: _department,
-                        decoration: const InputDecoration(border: InputBorder.none),
+                        decoration:
+                            const InputDecoration(border: InputBorder.none),
                         items: const [
-                          DropdownMenuItem(value: 'Engine Department', child: Text('Engine Department')),
-                          DropdownMenuItem(value: 'Electrical Department', child: Text('Electrical Department')),
-                          DropdownMenuItem(value: 'Deck Department', child: Text('Deck Department')),
+                          DropdownMenuItem(
+                              value: 'Engine Department',
+                              child: Text('Engine Department')),
+                          DropdownMenuItem(
+                              value: 'Electrical Department',
+                              child: Text('Electrical Department')),
+                          DropdownMenuItem(
+                              value: 'Deck Department',
+                              child: Text('Deck Department')),
                         ],
                         onChanged: (v) {
                           if (v == null) return;
                           setState(() => _department = v);
                         },
-                        icon: const Icon(Icons.keyboard_arrow_down, color: Color(0xFF6B7280)),
+                        icon: const Icon(Icons.keyboard_arrow_down,
+                            color: Color(0xFF6B7280)),
                       ),
                     ),
                   ],
@@ -98,14 +106,17 @@ class _NewRequestPageState extends State<NewRequestPage> {
 
               // Quantity + Priority Row
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Row(
                   children: [
                     // Quantity
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Quantity', style: TextStyle(fontSize: 13, color: Color(0xFF6B7280))),
+                        const Text('Quantity',
+                            style: TextStyle(
+                                fontSize: 13, color: Color(0xFF6B7280))),
                         const SizedBox(height: 8),
                         Container(
                           width: 120,
@@ -118,7 +129,10 @@ class _NewRequestPageState extends State<NewRequestPage> {
                           child: TextFormField(
                             controller: _quantityController,
                             keyboardType: TextInputType.number,
-                            decoration: const InputDecoration(border: InputBorder.none, contentPadding: EdgeInsets.symmetric(horizontal: 8, vertical: 14)),
+                            decoration: const InputDecoration(
+                                border: InputBorder.none,
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 8, vertical: 14)),
                           ),
                         ),
                       ],
@@ -135,20 +149,25 @@ class _NewRequestPageState extends State<NewRequestPage> {
 
               // Attach Photo Card
               AttachPhotoCard(onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Attach tapped')));
+                ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Attach tapped')));
               }),
 
               // Notes
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Notes', style: TextStyle(fontSize: 13, color: Color(0xFF6B7280))),
+                    const Text('Notes',
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0xFF6B7280))),
                     const SizedBox(height: 8),
                     Container(
                       height: 120,
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 12, vertical: 8),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(14),
@@ -167,7 +186,8 @@ class _NewRequestPageState extends State<NewRequestPage> {
               ),
               // Submit Button
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                 child: SizedBox(
                   width: double.infinity,
                   height: 52,
@@ -182,7 +202,8 @@ class _NewRequestPageState extends State<NewRequestPage> {
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text('Request submitted: $_itemController.text'),
+                          content:
+                              Text('Request submitted: $_itemController.text'),
                         ),
                       );
                     },

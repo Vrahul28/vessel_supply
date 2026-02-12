@@ -26,7 +26,7 @@ class _SecurityPageState extends State<SecurityPage> {
           },
           icon: Icon(Icons.arrow_back, color: Colors.white),
         ),
-        ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 16.0),
@@ -35,11 +35,11 @@ class _SecurityPageState extends State<SecurityPage> {
               // General Section
               _buildGeneralSection(),
               const SizedBox(height: 24),
-              
+
               // Security Section
               _buildSecuritySection(),
               const SizedBox(height: 24),
-              
+
               // Logout Button
               _buildLogoutButton(),
               const SizedBox(height: 32),

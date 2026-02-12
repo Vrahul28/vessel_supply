@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import '../res/colors/app_colors.dart';
 
-
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String text;
   final IconButton? iconButton;
   final IconButton? iconButton2;
-  
+
   const CustomAppBar({
-    super.key, 
-    required this.text, 
+    super.key,
+    required this.text,
     this.iconButton,
     this.iconButton2,
-    });
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(63);
@@ -30,7 +29,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         text,
         style: TextStyle(
-          fontSize: 18,
+          fontSize: 20,
           fontWeight: FontWeight.w600,
           color: Colors.white,
         ),

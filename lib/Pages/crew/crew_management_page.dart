@@ -4,7 +4,6 @@ import 'package:vessel_supply/res/routes_name/routes_name.dart';
 import 'package:vessel_supply/widgets/custom_app_bar.dart';
 import 'package:vessel_supply/widgets/search_widget.dart';
 
-
 class CrewManagementScreen extends StatelessWidget {
   const CrewManagementScreen({super.key});
 
@@ -21,8 +20,8 @@ class CrewManagementScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF1F5F9),
       appBar: CustomAppBar(
-      text: 'Crew Management',
-      iconButton2: IconButton(
+        text: 'Crew Management',
+        iconButton2: IconButton(
           onPressed: () {
             Get.back();
           },
@@ -63,7 +62,6 @@ class CrewManagementScreen extends StatelessWidget {
     );
   }
 }
-
 
 class AddCrewButton extends StatelessWidget {
   const AddCrewButton({super.key});
@@ -179,13 +177,12 @@ class CrewListWidget extends StatelessWidget {
   }
 }
 
-
 class CrewCard extends StatelessWidget {
   final String name;
   final String title;
   VoidCallback? onPressed;
 
-   CrewCard({
+  CrewCard({
     super.key,
     required this.name,
     required this.title,
@@ -241,13 +238,12 @@ class CrewCard extends StatelessWidget {
               ),
               // Chevron
               IconButton(
-                onPressed: onPressed, 
+                onPressed: onPressed,
                 icon: Icon(
-                Icons.chevron_right,
-                color: Colors.grey.shade400,
-              ),
-                )
-              
+                  Icons.chevron_right,
+                  color: Colors.grey.shade400,
+                ),
+              )
             ],
           ),
         ),

@@ -20,7 +20,6 @@ class ProfileHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-
         // Content
         Center(
           child: Padding(

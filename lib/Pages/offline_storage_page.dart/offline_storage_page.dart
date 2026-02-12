@@ -39,7 +39,7 @@ class _OfflineStoragePageState extends State<OfflineStoragePage> {
           },
           icon: Icon(Icons.arrow_back, color: Colors.white),
         ),
-        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -189,7 +189,6 @@ class _OfflineStoragePageState extends State<OfflineStoragePage> {
     );
   }
 
-  
   // Show module details
   void _showModuleDetails(String moduleName, int sizeMB) {
     ScaffoldMessenger.of(context).showSnackBar(

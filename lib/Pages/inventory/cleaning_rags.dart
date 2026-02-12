@@ -9,7 +9,6 @@ import 'package:vessel_supply/widgets/inventory_widgets/restock_button.dart';
 
 import '../../widgets/custom_app_bar.dart';
 
-
 class CleaningRags extends StatefulWidget {
   const CleaningRags({super.key});
 
@@ -18,7 +17,7 @@ class CleaningRags extends StatefulWidget {
 }
 
 class _CleaningRagsState extends State<CleaningRags> {
-  int currentNavIndex = 1; 
+  int currentNavIndex = 1;
   bool _isRestocking = false;
 
   @override
@@ -46,7 +45,7 @@ class _CleaningRagsState extends State<CleaningRags> {
           },
           icon: Icon(Icons.arrow_back, color: Colors.white),
         ),
-        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -107,7 +106,6 @@ class _CleaningRagsState extends State<CleaningRags> {
       ),
     );
   }
-
 
   // Restock button handler
   void _handleRestock() {

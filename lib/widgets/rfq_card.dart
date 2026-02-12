@@ -34,7 +34,8 @@ class StatusBadge extends StatelessWidget {
         },
       };
 
-  String get _statusText => status.name[0].toUpperCase() + status.name.substring(1);
+  String get _statusText =>
+      status.name[0].toUpperCase() + status.name.substring(1);
 
   @override
   Widget build(BuildContext context) {

@@ -1,18 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import '../../res/app_spacing/app_spacing.dart';
 import '../../res/colors/app_colors.dart';
 import '../../widgets/custom_app_bar.dart';
-
-// Spacing Constants
-class AppSpacing {
-  static const double xs = 4;
-  static const double sm = 8;
-  static const double md = 12;
-  static const double lg = 16;
-  static const double xl = 20;
-  static const double xxl = 24;
-}
 
 // Delivery Details Screen
 class SupplierPage extends StatefulWidget {
@@ -47,7 +38,7 @@ class _SupplierPageState extends State<SupplierPage> {
           },
           icon: Icon(Icons.arrow_back, color: Colors.white),
         ),
-        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -75,11 +66,12 @@ class _SupplierPageState extends State<SupplierPage> {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           'SHIPMENT DETAILS',
-                          style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                                color: AppColors.subtitleGrey,
-                                fontWeight: FontWeight.w600,
-                                letterSpacing: 0.5,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.labelSmall?.copyWith(
+                                    color: AppColors.subtitleGrey,
+                                    fontWeight: FontWeight.w600,
+                                    letterSpacing: 0.5,
+                                  ),
                         ),
                       ),
                     ),
@@ -207,10 +199,9 @@ class ArrivalBadge extends StatelessWidget {
           Text(
             'Arriving today',
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: AppColors.successGreen,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 15
-                ),
+                color: AppColors.successGreen,
+                fontWeight: FontWeight.w600,
+                fontSize: 15),
           ),
         ],
       ),
@@ -538,7 +529,8 @@ class PrimaryButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: isPrimary ? AppColors.appBarColor : AppColors.appBarColor,
+          backgroundColor:
+              isPrimary ? AppColors.appBarColor : AppColors.appBarColor,
           foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),

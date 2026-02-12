@@ -6,7 +6,6 @@ import '../../res/colors/app_colors.dart';
 import '../../widgets/custom_app_bar.dart';
 import '../../widgets/search_widget.dart';
 
-
 // Main Deliveries Screen
 class DeliveriesScreen extends StatefulWidget {
   const DeliveriesScreen({super.key});
@@ -37,16 +36,14 @@ class _DeliveriesScreenState extends State<DeliveriesScreen> {
       appBar: CustomAppBar(
         text: 'Deliveries',
         iconButton2: IconButton(
-          onPressed: () {
-            
-          },
+          onPressed: () {},
           icon: Icon(Icons.arrow_back, color: Colors.white),
         ),
-        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             child: Column(
               children: [
                 const SizedBox(height: 18),
@@ -62,7 +59,7 @@ class _DeliveriesScreenState extends State<DeliveriesScreen> {
                   },
                 ),
                 const SizedBox(height: 16),
-          
+
                 // Delivery Cards List
                 Column(
                   children: [
@@ -77,7 +74,7 @@ class _DeliveriesScreenState extends State<DeliveriesScreen> {
                       },
                     ),
                     const SizedBox(height: 12),
-          
+
                     // Restock Items Card
                     Container(
                       decoration: BoxDecoration(
@@ -128,7 +125,7 @@ class _DeliveriesScreenState extends State<DeliveriesScreen> {
                       ),
                     ),
                     const SizedBox(height: 12),
-          
+
                     // Completed Delivery - Supplier DEF
                     CompletedDeliveryCard(
                       supplierName: 'Supplier DEF',
@@ -140,7 +137,7 @@ class _DeliveriesScreenState extends State<DeliveriesScreen> {
                       ],
                     ),
                     const SizedBox(height: 12),
-          
+
                     // Supplier GHI
                     SupplierCard(
                       icon: Icons.folder,
@@ -161,13 +158,16 @@ class _DeliveriesScreenState extends State<DeliveriesScreen> {
   }
 }
 
-
-
 // Filter Chips Bar Widget
 class FilterChipsBar extends StatelessWidget {
   final String selectedFilter;
   final Function(String) onFilterChanged;
-  final List<String> filters = const ['ALL', 'PENDING', 'IN TRANSIT', 'COMPLETED'];
+  final List<String> filters = const [
+    'ALL',
+    'PENDING',
+    'IN TRANSIT',
+    'COMPLETED'
+  ];
 
   const FilterChipsBar({
     super.key,
@@ -193,7 +193,8 @@ class FilterChipsBar extends StatelessWidget {
                   fontSize: 12,
                 ),
               ),
-              backgroundColor: isSelected ? AppColors.appBarColor : AppColors.lightGrey,
+              backgroundColor:
+                  isSelected ? AppColors.appBarColor : AppColors.lightGrey,
               onSelected: (_) => onFilterChanged(filter),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
@@ -346,9 +347,12 @@ class RestockItemTile extends StatelessWidget {
                 Text(
                   subtitle,
                   style: TextStyle(
-                    color: showHighlight ? AppColors.buttonBlue : AppColors.subtitleGrey,
+                    color: showHighlight
+                        ? AppColors.buttonBlue
+                        : AppColors.subtitleGrey,
                     fontSize: 12,
-                    fontWeight: showHighlight ? FontWeight.w500 : FontWeight.normal,
+                    fontWeight:
+                        showHighlight ? FontWeight.w500 : FontWeight.normal,
                   ),
                 ),
               ],

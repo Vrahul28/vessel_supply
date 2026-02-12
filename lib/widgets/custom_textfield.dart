@@ -52,7 +52,8 @@ class LabeledTextField extends StatelessWidget {
               maxLines: maxLines,
               decoration: InputDecoration(
                 hintText: hint,
-                contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(14),
                   borderSide: BorderSide.none,

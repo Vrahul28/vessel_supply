@@ -5,7 +5,6 @@ import '../widgets/custom_appbar.dart';
 import '../widgets/custom_search_bar.dart';
 import '../widgets/rfq_card.dart';
 
-
 class ActiveRfqPage extends StatefulWidget {
   const ActiveRfqPage({super.key});
 
@@ -92,17 +91,17 @@ class _ActiveRfqPageState extends State<ActiveRfqPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFF3F5F7),
       appBar: CustomAppBarActiveRFQ(
-            title: 'Active RFQs',
-              onBackPressed: () {
-                Navigator.pop(context);
-              },
-              onNewPressed: () {
-                Get.toNamed(RoutesName.newRequests);
-                // ScaffoldMessenger.of(context).showSnackBar(
-                //   const SnackBar(content: Text('Create new RFQ')),
-                // );
-              },
-            ),
+        title: 'Active RFQs',
+        onBackPressed: () {
+          Navigator.pop(context);
+        },
+        onNewPressed: () {
+          Get.toNamed(RoutesName.newRequests);
+          // ScaffoldMessenger.of(context).showSnackBar(
+          //   const SnackBar(content: Text('Create new RFQ')),
+          // );
+        },
+      ),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
@@ -158,8 +157,7 @@ class _ActiveRfqPageState extends State<ActiveRfqPage> {
                       onTap: () {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content: Text(
-                                'RFQ #${rfq['number']} selected'),
+                            content: Text('RFQ #${rfq['number']} selected'),
                           ),
                         );
                       },

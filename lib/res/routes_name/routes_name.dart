@@ -1,5 +1,5 @@
 class RoutesName {
-  static const String login= '/';
+  static const String login = '/';
   static const String dashboard = '/dashboard';
   static const String activeRFQ = '/activeRFQ';
   static const String deliveries = '/deliveries';
@@ -14,4 +14,8 @@ class RoutesName {
   static const String auraDashboard = '/auraDashboard';
   static const String appLockPage = '/appLockPage';
   static const String supplierPage = '/supplierPage';
+  static const String crewRequestPage = '/crewRequestPage';
+  static const String selectItemsPage = '/select-items';
+  static const String reviewConfirmPage = '/review-confirm';
+  static const String requestSentPage = '/request-sent';
 }

@@ -13,7 +13,7 @@ class CustomActionCard extends StatelessWidget {
     required this.backgroundColor,
     required this.iconColor,
     required this.onTap,
-    });
+  });
 
   @override
   Widget build(BuildContext context) {

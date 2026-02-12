@@ -7,9 +7,12 @@ import 'package:vessel_supply/Pages/inventory/inventor_page.dart';
 import 'package:vessel_supply/Pages/new_request_page.dart';
 import 'package:vessel_supply/dashboard/dashboard.dart';
 
-
 import '../../Pages/app_lock/app_lock_page.dart';
 import '../../Pages/aura_dashboard/aura_dashboard_page.dart';
+import '../../Pages/crew_request_page/crew_request_page.dart';
+import '../../Pages/crew_request_page/request_sent_page.dart';
+import '../../Pages/crew_request_page/review_page.dart';
+import '../../Pages/crew_request_page/select_item_page.dart';
 import '../../Pages/deliveries_page/supplier_page.dart';
 import '../../Pages/inventory/cleaning_rags.dart';
 import '../../Pages/login_page/login_page.dart';
@@ -20,95 +23,119 @@ import '../routes_name/routes_name.dart';
 
 class Routes {
   static appRoutes() => [
-    GetPage(
-      name: RoutesName.login,
-      page: () => const LoginPage(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.dashboard,
-      page: () => const Dashboard(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.activeRFQ,
-      page: () => const ActiveRfqPage(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.deliveries,
-      page: () => const DeliveriesPage(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.newRequests,
-      page: () => const NewRequestPage(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.securityPage,
-      page: () => const SecurityPage(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.inventory,
-      page: () => const InventoryPage(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.crewManagement,
-      page: () => const CrewManagementScreen(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.crewProfile,
-      page: () => const  CrewProfile(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-     GetPage(
-      name: RoutesName.cleaningRags,
-      page: () => const  CleaningRags(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.offlineStoragePage,
-      page: () => const  OfflineStoragePage(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.notificationPage,
-      page: () => const  NotificationPage(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.auraDashboard,
-      page: () => const  AuraDashboardPage(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.appLockPage,
-      page: () => const  AppLockPage(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-    GetPage(
-      name: RoutesName.supplierPage,
-      page: () => const  SupplierPage(),
-      transitionDuration: const Duration(microseconds: 250),
-      transition: Transition.rightToLeft,
-    ),
-  ];
+        GetPage(
+          name: RoutesName.login,
+          page: () => const LoginPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.dashboard,
+          page: () => const Dashboard(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.activeRFQ,
+          page: () => const ActiveRfqPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.deliveries,
+          page: () => const DeliveriesPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.newRequests,
+          page: () => const NewRequestPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.securityPage,
+          page: () => const SecurityPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.inventory,
+          page: () => const InventoryPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.crewManagement,
+          page: () => const CrewManagementScreen(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.crewProfile,
+          page: () => const CrewProfile(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.cleaningRags,
+          page: () => const CleaningRags(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.offlineStoragePage,
+          page: () => const OfflineStoragePage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.notificationPage,
+          page: () => const NotificationPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.auraDashboard,
+          page: () => const AuraDashboardPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.appLockPage,
+          page: () => const AppLockPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.supplierPage,
+          page: () => const SupplierPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.crewRequestPage,
+          page: () => const CrewRequestPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.selectItemsPage,
+          page: () => const SelectItemsPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.reviewConfirmPage,
+          page: () => const ReviewConfirmPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.requestSentPage,
+          page: () => const RequestSentPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+      ];
 }

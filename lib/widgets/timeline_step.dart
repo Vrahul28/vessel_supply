@@ -5,7 +5,8 @@ class TimelineStep extends StatelessWidget {
   final DeliveryStep step;
   final bool showConnectorBelow;
 
-  const TimelineStep({super.key, required this.step, this.showConnectorBelow = true});
+  const TimelineStep(
+      {super.key, required this.step, this.showConnectorBelow = true});
 
   Widget _buildCircle() {
     switch (step.status) {

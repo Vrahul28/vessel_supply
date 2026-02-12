@@ -5,7 +5,6 @@ import 'package:vessel_supply/widgets/crew_widgets/toggle_tile.dart';
 import 'package:vessel_supply/widgets/crew_widgets/info_tile.dart';
 import '../../widgets/custom_app_bar.dart';
 
-
 class CrewProfile extends StatefulWidget {
   const CrewProfile({super.key});
 
@@ -22,8 +21,8 @@ class _CrewProfileState extends State<CrewProfile> {
     return Scaffold(
       backgroundColor: const Color(0xFFEEF1F5),
       appBar: CustomAppBar(
-      text: 'Crew Profile',
-      iconButton2: IconButton(
+        text: 'Crew Profile',
+        iconButton2: IconButton(
           onPressed: () {
             Get.back();
           },
@@ -195,5 +194,4 @@ class _CrewProfileState extends State<CrewProfile> {
       ),
     );
   }
-  
 }
