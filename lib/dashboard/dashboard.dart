@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vessel_supply/main_screen/main_screen.dart';
+import '../Pages/account_page/account_page.dart';
 import '../Pages/active_RFQ_page.dart';
 import '../Pages/deliveries_page/delivery_page.dart';
-import '../Pages/setting_page.dart';
+import '../Pages/account_page/setting_page.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -37,7 +38,7 @@ class _DashboardState extends State<Dashboard> {
           MainScreen(),
           ActiveRfqPage(),
           DeliveriesScreen(),
-          SettingPage(),
+          AccountPage(),
         ],
       ),
       bottomNavigationBar: _buildBottomNavBar(),

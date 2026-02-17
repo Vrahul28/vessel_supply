@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:vessel_supply/widgets/custom_app_bar.dart';
+import '../../res/routes_name/routes_name.dart';
 
-class SecurityPage extends StatefulWidget {
-  const SecurityPage({super.key});
+class SettingPage extends StatefulWidget {
+  const SettingPage({super.key});
 
   @override
-  State<SecurityPage> createState() => _SecurityPageState();
+  State<SettingPage> createState() => _SettingPageState();
 }
 
-class _SecurityPageState extends State<SecurityPage> {
+class _SettingPageState extends State<SettingPage> {
   bool pinEnabled = true;
   bool biometricEnabled = true;
 
@@ -19,7 +19,7 @@ class _SecurityPageState extends State<SecurityPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFF3F5F7),
       appBar: CustomAppBar(
-        text: 'Security',
+        text: 'Settings',
         iconButton2: IconButton(
           onPressed: () {
             Get.back();
@@ -39,10 +39,6 @@ class _SecurityPageState extends State<SecurityPage> {
               // Security Section
               _buildSecuritySection(),
               const SizedBox(height: 24),
-
-              // Logout Button
-              _buildLogoutButton(),
-              const SizedBox(height: 32),
             ],
           ),
         ),
@@ -85,28 +81,26 @@ class _SecurityPageState extends State<SecurityPage> {
               children: [
                 // Require App PIN
                 _buildSettingRow(
-                  icon: Icons.shield,
-                  iconColor: const Color(0xFF42A5F5),
-                  iconBgColor: const Color(0xFFE3F2FD),
-                  title: 'Require App PIN',
-                  trailing: CupertinoSwitch(
-                    value: pinEnabled,
-                    onChanged: (value) {
-                      setState(() => pinEnabled = value);
-                    },
-                    activeColor: const Color(0xFF3D5A80),
-                  ),
-                  showDivider: true,
-                ),
-                // Biometric Unlock
-                _buildSettingRow(
-                  icon: Icons.fingerprint,
+                  icon: Icons.wifi,
                   iconColor: const Color(0xFF7B1FA2),
                   iconBgColor: const Color(0xFFF3E5F5),
-                  title: 'Biometric Unlock',
+                  title: 'Syn Status',
                   subtitle: 'Enabled',
                   showChevron: true,
                   showDivider: false,
+                ),
+                // Biometric Unlock
+                _buildSettingRow(
+                  icon: Icons.storage,
+                  iconColor: const Color(0xFF7B1FA2),
+                  iconBgColor: const Color(0xFFF3E5F5),
+                  title: 'Offline Storage',
+                  subtitle: 'Enabled',
+                  showChevron: true,
+                  showDivider: false,
+                  onTap: () {
+                    Get.toNamed(RoutesName.offlineStoragePage);
+                  },
                 ),
               ],
             ),
@@ -151,36 +145,59 @@ class _SecurityPageState extends State<SecurityPage> {
               children: [
                 // Trusted Devices
                 _buildSecurityItem(
-                  icon: Icons.devices,
+                  icon: Icons.notifications,
                   iconColor: const Color(0xFF1976D2),
                   iconBgColor: const Color(0xFFE3F2FD),
-                  title: 'Trusted Devices',
+                  title: 'Notifications',
                   showDivider: true,
+                  onTap: () {
+                    Get.toNamed(RoutesName.notificationPage);
+                  },
                 ),
                 // Session Timeout
                 _buildSecurityItem(
-                  icon: Icons.schedule,
+                  icon: Icons.person,
                   iconColor: const Color(0xFFD32F2F),
                   iconBgColor: const Color(0xFFFFEBEE),
-                  title: 'Session Timeout',
-                  trailing: '30 minutes',
+                  title: 'Crew Management',
+                  trailing: '',
                   showDivider: true,
+                  onTap: () {
+                    Get.toNamed(RoutesName.crewManagement);
+                  },
                 ),
                 // Audit Trail
                 _buildSecurityItem(
-                  icon: Icons.history,
+                  icon: Icons.lock_open_rounded,
                   iconColor: const Color(0xFF388E3C),
                   iconBgColor: const Color(0xFFF1F8E9),
-                  title: 'Audit Trail',
+                  title: 'Application Lock',
                   showDivider: true,
+                  onTap: () {
+                    Get.toNamed(RoutesName.appLockPage);
+                  },
                 ),
                 // Change PIN
                 _buildSecurityItem(
                   icon: Icons.lock,
                   iconColor: const Color(0xFFFF8F00),
                   iconBgColor: const Color(0xFFFFF3E0),
-                  title: 'Change PIN',
+                  title: 'Security',
                   showDivider: false,
+                  onTap: () {
+                    Get.toNamed(RoutesName.securityPage);
+                  },
+                ),
+                // Change PIN
+                _buildSecurityItem(
+                  icon: Icons.lock,
+                  iconColor: const Color(0xFFFF8F00),
+                  iconBgColor: const Color(0xFFFFF3E0),
+                  title: 'Support',
+                  showDivider: false,
+                  onTap: () {
+                    Get.toNamed(RoutesName.auraDashboard);
+                  },
                 ),
               ],
             ),
@@ -196,54 +213,58 @@ class _SecurityPageState extends State<SecurityPage> {
     required Color iconColor,
     required Color iconBgColor,
     required String title,
+    VoidCallback? onTap,
     String? trailing,
     required bool showDivider,
   }) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14),
-          child: Row(
-            children: [
-              // Icon with circular background
-              Container(
-                width: 44,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: iconBgColor,
-                  borderRadius: BorderRadius.circular(12),
+        GestureDetector(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14),
+            child: Row(
+              children: [
+                // Icon with circular background
+                Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    color: iconBgColor,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(icon, color: iconColor, size: 22),
                 ),
-                child: Icon(icon, color: iconColor, size: 22),
-              ),
-              const SizedBox(width: 16),
-              // Title
-              Expanded(
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF212529),
+                const SizedBox(width: 16),
+                // Title
+                Expanded(
+                  child: Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF212529),
+                    ),
                   ),
                 ),
-              ),
-              // Trailing (optional)
-              if (trailing != null)
-                Text(
-                  trailing,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Color(0xFF90A4AE),
-                    fontWeight: FontWeight.w400,
+                // Trailing (optional)
+                if (trailing != null)
+                  Text(
+                    trailing,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Color(0xFF90A4AE),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  )
+                else
+                  const Icon(
+                    Icons.chevron_right,
+                    color: Color(0xFFBDBDBD),
+                    size: 24,
                   ),
-                )
-              else
-                const Icon(
-                  Icons.chevron_right,
-                  color: Color(0xFFBDBDBD),
-                  size: 24,
-                ),
-            ],
+              ],
+            ),
           ),
         ),
         if (showDivider)
@@ -264,77 +285,81 @@ class _SecurityPageState extends State<SecurityPage> {
     required Color iconColor,
     required Color iconBgColor,
     required String title,
+    final VoidCallback? onTap,
     String? subtitle,
     Widget? trailing,
     bool showChevron = false,
     required bool showDivider,
   }) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14),
-          child: Row(
-            children: [
-              // Icon with circular background
-              Container(
-                width: 44,
-                height: 44,
-                decoration: BoxDecoration(
-                  color: iconBgColor,
-                  borderRadius: BorderRadius.circular(12),
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14),
+            child: Row(
+              children: [
+                // Icon with circular background
+                Container(
+                  width: 44,
+                  height: 44,
+                  decoration: BoxDecoration(
+                    color: iconBgColor,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Icon(icon, color: iconColor, size: 22),
                 ),
-                child: Icon(icon, color: iconColor, size: 22),
-              ),
-              const SizedBox(width: 16),
-              // Title and Subtitle
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xFF212529),
-                      ),
-                    ),
-                    if (subtitle != null)
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4),
-                        child: Text(
-                          subtitle,
-                          style: const TextStyle(
-                            fontSize: 13,
-                            color: Color(0xFF90A4AE),
-                            fontWeight: FontWeight.w400,
-                          ),
+                const SizedBox(width: 16),
+                // Title and Subtitle
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF212529),
                         ),
                       ),
-                  ],
+                      if (subtitle != null)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Text(
+                            subtitle,
+                            style: const TextStyle(
+                              fontSize: 13,
+                              color: Color(0xFF90A4AE),
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
-              ),
-              // Trailing widget or chevron
-              if (trailing != null)
-                trailing
-              else if (showChevron)
-                const Icon(
-                  Icons.chevron_right,
-                  color: Color(0xFFBDBDBD),
-                  size: 24,
-                ),
-            ],
-          ),
-        ),
-        if (showDivider)
-          Padding(
-            padding: const EdgeInsets.only(left: 60, right: 16),
-            child: Container(
-              height: 1,
-              color: const Color(0xFFF5F5F5),
+                // Trailing widget or chevron
+                if (trailing != null)
+                  trailing
+                else if (showChevron)
+                  const Icon(
+                    Icons.chevron_right,
+                    color: Color(0xFFBDBDBD),
+                    size: 24,
+                  ),
+              ],
             ),
           ),
-      ],
+          if (showDivider)
+            Padding(
+              padding: const EdgeInsets.only(left: 60, right: 16),
+              child: Container(
+                height: 1,
+                color: const Color(0xFFF5F5F5),
+              ),
+            ),
+        ],
+      ),
     );
   }
 

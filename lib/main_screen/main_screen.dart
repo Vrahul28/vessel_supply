@@ -63,7 +63,7 @@ class QuickGrid extends StatelessWidget {
         backgroundColor: Color(0xFFF3E5F5),
         iconColor: Color(0xFF7B1FA2),
         onTap: () {
-          Get.toNamed(RoutesName.deliveries);
+          Get.toNamed(RoutesName.deliveryTrackerPage);
         },
       ),
       CustomActionCard(
@@ -82,6 +82,24 @@ class QuickGrid extends StatelessWidget {
         iconColor: Color(0xFF00796B),
         onTap: () {
           Get.toNamed(RoutesName.crewRequestPage);
+        },
+      ),
+      CustomActionCard(
+        label: 'Documents',
+        icon: Icons.description,
+        backgroundColor: Color(0xFFE0F2F1),
+        iconColor: Color(0xFF00796B),
+        onTap: () {
+          Get.toNamed(RoutesName.documentsPage);
+        },
+      ),
+      CustomActionCard(
+        label: 'Scanning',
+        icon: Icons.qr_code_scanner,
+        backgroundColor: Color(0xFFE0F2F1),
+        iconColor: Color(0xFF00796B),
+        onTap: () {
+         
         },
       ),
     ];

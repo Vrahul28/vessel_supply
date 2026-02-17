@@ -7,6 +7,9 @@ import 'package:vessel_supply/Pages/inventory/inventor_page.dart';
 import 'package:vessel_supply/Pages/new_request_page.dart';
 import 'package:vessel_supply/dashboard/dashboard.dart';
 
+import '../../Pages/account_page/audit_details_page.dart';
+import '../../Pages/account_page/audit_trail_page.dart';
+import '../../Pages/account_page/setting_page.dart';
 import '../../Pages/app_lock/app_lock_page.dart';
 import '../../Pages/aura_dashboard/aura_dashboard_page.dart';
 import '../../Pages/crew_request_page/crew_request_page.dart';
@@ -14,11 +17,15 @@ import '../../Pages/crew_request_page/request_sent_page.dart';
 import '../../Pages/crew_request_page/review_page.dart';
 import '../../Pages/crew_request_page/select_item_page.dart';
 import '../../Pages/deliveries_page/supplier_page.dart';
+import '../../Pages/delivery_tracker/acknowledge_delivery_page.dart';
+import '../../Pages/delivery_tracker/delivery_no_page.dart';
+import '../../Pages/delivery_tracker/delivery_tracker_page.dart';
+import '../../Pages/document_page.dart';
 import '../../Pages/inventory/cleaning_rags.dart';
 import '../../Pages/login_page/login_page.dart';
 import '../../Pages/notification_page/notification_page.dart';
 import '../../Pages/offline_storage_page.dart/offline_storage_page.dart';
-import '../../Pages/security_page.dart';
+import '../../Pages/account_page/security_page.dart';
 import '../routes_name/routes_name.dart';
 
 class Routes {
@@ -134,6 +141,48 @@ class Routes {
         GetPage(
           name: RoutesName.requestSentPage,
           page: () => const RequestSentPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.settingPage,
+          page: () => const SettingPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.deliveryTrackerPage,
+          page: () => const DeliveryTrackerPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.acknowledgeDeliveryPage,
+          page: () => const AcknowledgeDeliveryPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.deliveryNoPage,
+          page: () => const DeliveryNoPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.auditTrailPage,
+          page: () => const AuditTrailPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+         GetPage(
+          name: RoutesName.auditDetailsPage,
+          page: () => const AuditDetailsScreen(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+         GetPage(
+          name: RoutesName.documentsPage,
+          page: () => const DocumentsPage(),
           transitionDuration: const Duration(microseconds: 250),
           transition: Transition.rightToLeft,
         ),

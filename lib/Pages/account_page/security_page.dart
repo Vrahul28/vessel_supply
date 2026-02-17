@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:vessel_supply/widgets/custom_app_bar.dart';
-import '../res/routes_name/routes_name.dart';
+import '../../res/routes_name/routes_name.dart';
 
-class SettingPage extends StatefulWidget {
-  const SettingPage({super.key});
+class SecurityPage extends StatefulWidget {
+  const SecurityPage({super.key});
 
   @override
-  State<SettingPage> createState() => _SettingPageState();
+  State<SecurityPage> createState() => _SecurityPageState();
 }
 
-class _SettingPageState extends State<SettingPage> {
+class _SecurityPageState extends State<SecurityPage> {
   bool pinEnabled = true;
   bool biometricEnabled = true;
 
@@ -19,7 +20,7 @@ class _SettingPageState extends State<SettingPage> {
     return Scaffold(
       backgroundColor: const Color(0xFFF3F5F7),
       appBar: CustomAppBar(
-        text: 'Settings',
+        text: 'Security',
         iconButton2: IconButton(
           onPressed: () {
             Get.back();
@@ -39,6 +40,10 @@ class _SettingPageState extends State<SettingPage> {
               // Security Section
               _buildSecuritySection(),
               const SizedBox(height: 24),
+
+              // Logout Button
+              _buildLogoutButton(),
+              const SizedBox(height: 32),
             ],
           ),
         ),
@@ -81,26 +86,28 @@ class _SettingPageState extends State<SettingPage> {
               children: [
                 // Require App PIN
                 _buildSettingRow(
-                  icon: Icons.wifi,
-                  iconColor: const Color(0xFF7B1FA2),
-                  iconBgColor: const Color(0xFFF3E5F5),
-                  title: 'Syn Status',
-                  subtitle: 'Enabled',
-                  showChevron: true,
-                  showDivider: false,
+                  icon: Icons.shield,
+                  iconColor: const Color(0xFF42A5F5),
+                  iconBgColor: const Color(0xFFE3F2FD),
+                  title: 'Require App PIN',
+                  trailing: CupertinoSwitch(
+                    value: pinEnabled,
+                    onChanged: (value) {
+                      setState(() => pinEnabled = value);
+                    },
+                    activeColor: const Color(0xFF3D5A80),
+                  ),
+                  showDivider: true,
                 ),
                 // Biometric Unlock
                 _buildSettingRow(
-                  icon: Icons.storage,
+                  icon: Icons.fingerprint,
                   iconColor: const Color(0xFF7B1FA2),
                   iconBgColor: const Color(0xFFF3E5F5),
-                  title: 'Offline Storage',
+                  title: 'Biometric Unlock',
                   subtitle: 'Enabled',
                   showChevron: true,
                   showDivider: false,
-                  onTap: () {
-                    Get.toNamed(RoutesName.offlineStoragePage);
-                  },
                 ),
               ],
             ),
@@ -145,36 +152,30 @@ class _SettingPageState extends State<SettingPage> {
               children: [
                 // Trusted Devices
                 _buildSecurityItem(
-                  icon: Icons.notifications,
+                  icon: Icons.devices,
                   iconColor: const Color(0xFF1976D2),
                   iconBgColor: const Color(0xFFE3F2FD),
-                  title: 'Notifications',
+                  title: 'Trusted Devices',
                   showDivider: true,
-                  onTap: () {
-                    Get.toNamed(RoutesName.notificationPage);
-                  },
                 ),
                 // Session Timeout
                 _buildSecurityItem(
-                  icon: Icons.person,
+                  icon: Icons.schedule,
                   iconColor: const Color(0xFFD32F2F),
                   iconBgColor: const Color(0xFFFFEBEE),
-                  title: 'Crew Management',
-                  trailing: '',
+                  title: 'Session Timeout',
+                  trailing: '30 minutes',
                   showDivider: true,
-                  onTap: () {
-                    Get.toNamed(RoutesName.crewManagement);
-                  },
                 ),
                 // Audit Trail
                 _buildSecurityItem(
-                  icon: Icons.lock_open_rounded,
+                  icon: Icons.history,
                   iconColor: const Color(0xFF388E3C),
                   iconBgColor: const Color(0xFFF1F8E9),
-                  title: 'Application Lock',
+                  title: 'Audit Trail',
                   showDivider: true,
                   onTap: () {
-                    Get.toNamed(RoutesName.appLockPage);
+                    Get.toNamed(RoutesName.auditTrailPage);
                   },
                 ),
                 // Change PIN
@@ -182,22 +183,8 @@ class _SettingPageState extends State<SettingPage> {
                   icon: Icons.lock,
                   iconColor: const Color(0xFFFF8F00),
                   iconBgColor: const Color(0xFFFFF3E0),
-                  title: 'Security',
+                  title: 'Change PIN',
                   showDivider: false,
-                  onTap: () {
-                    Get.toNamed(RoutesName.securityPage);
-                  },
-                ),
-                // Change PIN
-                _buildSecurityItem(
-                  icon: Icons.lock,
-                  iconColor: const Color(0xFFFF8F00),
-                  iconBgColor: const Color(0xFFFFF3E0),
-                  title: 'Support',
-                  showDivider: false,
-                  onTap: () {
-                    Get.toNamed(RoutesName.auraDashboard);
-                  },
                 ),
               ],
             ),
@@ -213,16 +200,16 @@ class _SettingPageState extends State<SettingPage> {
     required Color iconColor,
     required Color iconBgColor,
     required String title,
-    VoidCallback? onTap,
     String? trailing,
+    VoidCallback? onTap,
     required bool showDivider,
   }) {
     return Column(
       children: [
-        GestureDetector(
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14),
+          child: GestureDetector(
+            onTap: onTap,
             child: Row(
               children: [
                 // Icon with circular background
@@ -285,81 +272,77 @@ class _SettingPageState extends State<SettingPage> {
     required Color iconColor,
     required Color iconBgColor,
     required String title,
-    final VoidCallback? onTap,
     String? subtitle,
     Widget? trailing,
     bool showChevron = false,
     required bool showDivider,
   }) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14),
-            child: Row(
-              children: [
-                // Icon with circular background
-                Container(
-                  width: 44,
-                  height: 44,
-                  decoration: BoxDecoration(
-                    color: iconBgColor,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(icon, color: iconColor, size: 22),
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14),
+          child: Row(
+            children: [
+              // Icon with circular background
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: iconBgColor,
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                const SizedBox(width: 16),
-                // Title and Subtitle
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xFF212529),
-                        ),
+                child: Icon(icon, color: iconColor, size: 22),
+              ),
+              const SizedBox(width: 16),
+              // Title and Subtitle
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF212529),
                       ),
-                      if (subtitle != null)
-                        Padding(
-                          padding: const EdgeInsets.only(top: 4),
-                          child: Text(
-                            subtitle,
-                            style: const TextStyle(
-                              fontSize: 13,
-                              color: Color(0xFF90A4AE),
-                              fontWeight: FontWeight.w400,
-                            ),
+                    ),
+                    if (subtitle != null)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(
+                          subtitle,
+                          style: const TextStyle(
+                            fontSize: 13,
+                            color: Color(0xFF90A4AE),
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
-                    ],
-                  ),
+                      ),
+                  ],
                 ),
-                // Trailing widget or chevron
-                if (trailing != null)
-                  trailing
-                else if (showChevron)
-                  const Icon(
-                    Icons.chevron_right,
-                    color: Color(0xFFBDBDBD),
-                    size: 24,
-                  ),
-              ],
+              ),
+              // Trailing widget or chevron
+              if (trailing != null)
+                trailing
+              else if (showChevron)
+                const Icon(
+                  Icons.chevron_right,
+                  color: Color(0xFFBDBDBD),
+                  size: 24,
+                ),
+            ],
+          ),
+        ),
+        if (showDivider)
+          Padding(
+            padding: const EdgeInsets.only(left: 60, right: 16),
+            child: Container(
+              height: 1,
+              color: const Color(0xFFF5F5F5),
             ),
           ),
-          if (showDivider)
-            Padding(
-              padding: const EdgeInsets.only(left: 60, right: 16),
-              child: Container(
-                height: 1,
-                color: const Color(0xFFF5F5F5),
-              ),
-            ),
-        ],
-      ),
+      ],
     );
   }
 

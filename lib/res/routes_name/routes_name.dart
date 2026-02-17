@@ -18,4 +18,11 @@ class RoutesName {
   static const String selectItemsPage = '/select-items';
   static const String reviewConfirmPage = '/review-confirm';
   static const String requestSentPage = '/request-sent';
+  static const String settingPage = '/settings';
+  static const String deliveryTrackerPage = '/deliveryTrackerPage';
+  static const String acknowledgeDeliveryPage = '/acknowledgeDeliveryPage';
+  static const String deliveryNoPage = '/deliveryNoPage';
+  static const String auditTrailPage = '/auditTrailPage';
+  static const String auditDetailsPage = '/auditDetailsPage';
+  static const String documentsPage = '/documentsPage';
 }
