@@ -196,7 +196,7 @@ class _SettingPageState extends State<SettingPage> {
                   title: 'Support',
                   showDivider: false,
                   onTap: () {
-                    Get.toNamed(RoutesName.auraDashboard);
+                    Get.toNamed(RoutesName.supportPage);
                   },
                 ),
               ],

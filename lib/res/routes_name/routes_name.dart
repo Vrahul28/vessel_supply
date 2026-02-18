@@ -25,4 +25,7 @@ class RoutesName {
   static const String auditTrailPage = '/auditTrailPage';
   static const String auditDetailsPage = '/auditDetailsPage';
   static const String documentsPage = '/documentsPage';
+  static const String supportPage = '/supportPage';
+  static const String helpCeneterPage = '/helpCeneterPage';
+  static const String syncPage = '/syncPage';
 }

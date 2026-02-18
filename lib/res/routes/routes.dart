@@ -9,7 +9,10 @@ import 'package:vessel_supply/dashboard/dashboard.dart';
 
 import '../../Pages/account_page/audit_details_page.dart';
 import '../../Pages/account_page/audit_trail_page.dart';
+import '../../Pages/account_page/help_center_page.dart';
 import '../../Pages/account_page/setting_page.dart';
+import '../../Pages/account_page/support_page.dart';
+import '../../Pages/account_page/sync_logs_page.dart';
 import '../../Pages/app_lock/app_lock_page.dart';
 import '../../Pages/aura_dashboard/aura_dashboard_page.dart';
 import '../../Pages/crew_request_page/crew_request_page.dart';
@@ -183,6 +186,24 @@ class Routes {
          GetPage(
           name: RoutesName.documentsPage,
           page: () => const DocumentsPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.supportPage,
+          page: () => const SupportPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.helpCeneterPage,
+          page: () => const HelpCenterPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.syncPage,
+          page: () => const SyncSupportLogsPage(),
           transitionDuration: const Duration(microseconds: 250),
           transition: Transition.rightToLeft,
         ),
