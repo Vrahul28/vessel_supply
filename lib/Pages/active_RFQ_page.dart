@@ -97,9 +97,6 @@ class _ActiveRfqPageState extends State<ActiveRfqPage> {
         },
         onNewPressed: () {
           Get.toNamed(RoutesName.newRequests);
-          // ScaffoldMessenger.of(context).showSnackBar(
-          //   const SnackBar(content: Text('Create new RFQ')),
-          // );
         },
       ),
       body: SafeArea(
