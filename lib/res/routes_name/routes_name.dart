@@ -28,4 +28,6 @@ class RoutesName {
   static const String supportPage = '/supportPage';
   static const String helpCeneterPage = '/helpCeneterPage';
   static const String syncPage = '/syncPage';
+  static const String documentViwer = '/documentViwer';
+  static const String documentCenter = '/documentCenter';
 }

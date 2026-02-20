@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vessel_supply/res/colors/app_colors.dart';
+import 'package:vessel_supply/res/routes_name/routes_name.dart';
 import '../../../widgets/custom_app_bar.dart';
 import '../../../widgets/custom_primary_button.dart';
 import '../../../widgets/search_widget.dart';
@@ -59,6 +60,19 @@ class DocumentsPage extends StatelessWidget {
               child: SearchBarWidget(hintText: 'Search documents...'),
             ),
             const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+              child: DocumentTile(
+                title: "Document Center",
+                details: "Search documents",
+                icon: Icon(Icons.picture_as_pdf, color: AppColors.appBarColor),
+                downloaded: false,
+                onTap: () {
+                  Get.toNamed(RoutesName.documentCenter);
+                },
+              ),
+            ),
+            const SizedBox(height: 16),
             Expanded(
               child: ListView.separated(
                 padding: const EdgeInsets.fromLTRB(16, 0, 16, 100),
@@ -70,7 +84,10 @@ class DocumentsPage extends StatelessWidget {
                     title: d.title,
                     details: d.details,
                     downloaded: d.downloaded,
-                    onTap: () => debugPrint('Tapped ${d.title}'),
+                    icon: Icon(Icons.picture_as_pdf, color: Color(0xFFD32F2F)),
+                    onTap: (){
+                      Get.toNamed(RoutesName.documentViwer);
+                    },
                   );
                 },
               ),
@@ -81,10 +98,10 @@ class DocumentsPage extends StatelessWidget {
       bottomSheet: Padding(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 18),
         child: PrimaryButton(
-                      text: 'Offline Saved',
-                      backgroundColor: AppColors.appBarColor,
-                      onPressed: () {},
-                    ),
+          text: 'Offline Saved',
+          backgroundColor: AppColors.appBarColor,
+          onPressed: () {},
+        ),
       ),
     );
   }

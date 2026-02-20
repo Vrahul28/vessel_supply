@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vessel_supply/res/colors/app_colors.dart';
 
 // Primary Button Widget
 class PrimaryButton extends StatelessWidget {
@@ -12,7 +13,7 @@ class PrimaryButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
-    this.backgroundColor = const Color(0xFF2A5EA8),
+    this.backgroundColor = AppColors.appBarColor,
     this.height = 50,
     this.borderRadius = 12,
   });

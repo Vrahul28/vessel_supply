@@ -7,7 +7,6 @@ import 'package:vessel_supply/widgets/inverntory_item_card.dart';
 import 'package:vessel_supply/widgets/search_widget.dart';
 import '../../../res/colors/app_colors.dart';
 import '../../cleaning_rags/widget/restock_button.dart';
-import '../../help_center/view/help_center_page.dart';
 import '../widgets/filter_chip_widget.dart';
 
 class InventoryPage extends StatelessWidget {

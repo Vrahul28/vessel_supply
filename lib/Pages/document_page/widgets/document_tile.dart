@@ -5,6 +5,7 @@ class DocumentTile extends StatelessWidget {
   final String details;
   final bool downloaded;
   final VoidCallback onTap;
+  final Widget icon;
 
   const DocumentTile({
     super.key,
@@ -12,6 +13,7 @@ class DocumentTile extends StatelessWidget {
     required this.details,
     required this.downloaded,
     required this.onTap,
+    required this.icon,
   });
 
   @override
@@ -40,8 +42,8 @@ class DocumentTile extends StatelessWidget {
                   color: const Color(0xFFF5F5F5),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Center(
-                  child: Icon(Icons.picture_as_pdf, color: Color(0xFFD32F2F)),
+                child: Center(
+                  child: icon,
                 ),
               ),
               const SizedBox(width: 12),

@@ -9,6 +9,8 @@ import 'package:vessel_supply/dashboard/dashboard.dart';
 
 import '../../Pages/audit_detail_page/view/audit_details_page.dart';
 import '../../Pages/audit_trail_page/view/audit_trail_page.dart';
+import '../../Pages/document_page/view/document_center.dart';
+import '../../Pages/document_page/view/document_viewer.dart';
 import '../../Pages/help_center/view/help_center_page.dart';
 import '../../Pages/setting_page/view/setting_page.dart';
 import '../../Pages/support_page/view/support_page.dart';
@@ -204,6 +206,18 @@ class Routes {
         GetPage(
           name: RoutesName.syncPage,
           page: () => const SyncSupportLogsPage(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.documentViwer,
+          page: () => const DocumentViewer(),
+          transitionDuration: const Duration(microseconds: 250),
+          transition: Transition.rightToLeft,
+        ),
+        GetPage(
+          name: RoutesName.documentCenter,
+          page: () => const DocumentCenter(),
           transitionDuration: const Duration(microseconds: 250),
           transition: Transition.rightToLeft,
         ),
